@@ -1,5 +1,29 @@
 {
   "dependencies": {
     "sub-vn": "^0.0.2"
-  }
+  },
+  "name": "food_ordering_web",
+  "version": "1.0.0",
+  "description": "Dự án này bao gồm backend (API), frontend (UI), CI/CD, tài liệu và các cấu hình cần thiết để triển khai một ứng dụng giao đồ ăn hiện đại.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nguyenthuyhangm/testing_proj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nguyenthuyhangm/testing_proj/issues"
+  },
+  "homepage": "https://github.com/Nguyenthuyhangm/testing_proj#readme"
 }
