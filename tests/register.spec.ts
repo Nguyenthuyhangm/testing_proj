@@ -21,7 +21,7 @@ test.describe("Register API Tests", () => {
     expect(response.status()).toBe(400);
   });
 
-  // TC2 – Email sai định dạng nhưng vẫn đăng ký => 400
+  // TC2 – Email sai định dạng => 400
   test("Invalid email format → 400", async ({ request }) => {
     const response = await request.post(BASE_URL, {
       data: {
@@ -35,6 +35,16 @@ test.describe("Register API Tests", () => {
     expect(response.status()).toBe(400);
   });
 
+  test("Password too short → 400", async ({ request }) => {
+    const response = await request.post(BASE_URL, {
+      data: {
+        username: "tungti30520017@gmail.com",
+        password: "123"
+      }
+    });
+    expect(response.status()).toBe(400);
+  });
+  
   // TC3 – Mật khẩu xác nhận không khớp => 409
   test("Password confirm mismatch → 409", async ({ request }) => {
     const response = await request.post(BASE_URL, {
@@ -65,18 +75,18 @@ test.describe("Register API Tests", () => {
 
   // TC5 – Đăng ký thành công → 200
   test("Successful registration → 200", async ({ request }) => {
-  const user = randomUser();
+    const user = randomUser();
 
-  const response = await request.post(BASE_URL, {
-    data: {
-      username: user,
-      email: `${user}@example.com`,
-      password: "DemoPass123!",
-      confirmPassword: "DemoPass123!"
-    }
+    const response = await request.post(BASE_URL, {
+      data: {
+        username: user,
+        email: `${user}@example.com`,
+        password: "DemoPass123!",
+        confirmPassword: "DemoPass123!"
+      }
+    });
+
+    expect(response.status()).toBe(200);
   });
-
-  expect(response.status()).toBe(200);
-});
 
 });
