@@ -42,7 +42,7 @@ test.describe('Chức năng Đăng nhập', () => {
       await page.goto('http://localhost:3000/');
       await customer.loginButton.click();
       await login.performLogin('A@', '12345');
-      await expect(login.messageBox).toHaveText('Mật khẩu tối thiểu 6 kí tự.');
+      await expect(login.messageBox).toHaveText('Sai tên đăng nhập hoặc mật khẩu.');
     });
     //TC5
     test('TC5 - wrong username, password', async ({ page }) => {
